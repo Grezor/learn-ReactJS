@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css'
-const Cars = ({children, color}) => {
+const Cars = ({children, color, year, construc}) => {
     // si je n'est pas de couleur
     const colorInfo = color ? (<p>Couleur : {color}</p>) : (<p>Couleur neant</p>);
     if (children) {
@@ -8,17 +8,13 @@ const Cars = ({children, color}) => {
         return (
             <div className="cars">
                 <p>Marque : {children}</p>
+                <p>Année : {year}</p>
+                <p>construction : {construc}</p>
                 {colorInfo}
             </div>
         )
     } else {
-        return (
-            <div className="cars">
-                {/* quand il n'a pas de marque */}
-                <p>Il n'a pas de marque</p>
-            </div>
-        )
+        return null
     }
-
 }
 export default Cars;
