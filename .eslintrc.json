@@ -28,6 +28,8 @@
                 "useTabs": true,
                 "endOfLine": "auto" 
             }
-        ]
+        ],
+        "linebreak-style": "off",
+        "no-param-reassign": "off"
     }
 }
