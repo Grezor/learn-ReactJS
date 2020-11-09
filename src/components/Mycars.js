@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import Cars from './Cars'
 class Mycars extends Component {
 	noCopy = () => {
@@ -53,7 +53,7 @@ class Mycars extends Component {
 		const year = new Date().getFullYear()
 
 		return (
-			<div>
+			<>
 				<h1>{this.props.title}</h1>
 				<h1>{this.state.titre}</h1>
 				<p onCopy={this.noCopy}>
@@ -77,6 +77,7 @@ class Mycars extends Component {
                 */}
 
 				<button onClick={this.addTenYears}>+10 ans</button>
+
 				{/* On recupere tout depuis state */}
 				{/* 
 					<Cars 
@@ -96,20 +97,29 @@ class Mycars extends Component {
 			*/}
 
 				{/* simplifier */}
-				{this.state.voitures.map((voitures, index) => {
-					return (
-						<div key={index}>
-							<Cars
-								key={index}
-								name={voitures.name}
-								color={voitures.color}
-								year={voitures.year}
-								construc={year - voitures.construc + 'ans'}
-							/>
-						</div>
-					)
-				})}
-			</div>
+				<table className='carsTable'>
+					<tr>
+						<th>Marque</th>
+						<th>age</th>
+
+						<th>construction</th>
+						<th>couleur</th>
+					</tr>
+					{this.state.voitures.map((voitures, index) => {
+						return (
+							<Fragment key={index}>
+								<Cars
+									key={index}
+									name={voitures.name}
+									color={voitures.color}
+									year={voitures.year}
+									construc={year - voitures.construc + 'ans'}
+								/>
+							</Fragment>
+						)
+					})}
+				</table>
+			</>
 		)
 	}
 }

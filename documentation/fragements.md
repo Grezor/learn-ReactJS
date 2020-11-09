@@ -1,0 +1,1 @@
+Pour le fragement, cela permet d'enlever les div dans return
